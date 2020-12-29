@@ -126,3 +126,11 @@ STATIC_URL = '/static/'
 #Auth redirects
 LOGIN_REDIRECT_URL = 'pages:pages'
 LOGOUT_REDIRECT_URL = 'home'
+
+#Emails
+if DEBUG:
+    EMAIL_BACKEND= "django.core.mail.backends.filebased.EmailBackend"
+    EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
+else:
+    #Aqui van las credenciales reales para cdo no esté en modo debug
+    pass
