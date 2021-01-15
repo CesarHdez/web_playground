@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'ckeditor',
     'core',
+    'messenger',
     'pages.apps.PagesConfig',
+    'profiles',
 ]
 
 MIDDLEWARE = [
@@ -124,7 +126,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 #Auth redirects
-LOGIN_REDIRECT_URL = 'pages:pages'
+# LOGIN_REDIRECT_URL = 'pages:pages'
 LOGOUT_REDIRECT_URL = 'home'
 
 #Emails
@@ -134,3 +136,7 @@ if DEBUG:
 else:
     #Aqui van las credenciales reales para cdo no esté en modo debug
     pass
+
+# Media Files
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

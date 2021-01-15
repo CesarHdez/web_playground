@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from pages.urls import pages_patterns
+from django.conf import settings
+from profiles.urls import profiles_patterns
 
 
 urlpatterns = [
@@ -25,4 +27,9 @@ urlpatterns = [
     # Auth Paths
     path('accounts/',include('django.contrib.auth.urls')),
     path('accounts/',include('registration.urls')),
+    path('profiles/', include(profiles_patterns)),
 ]
+
+if settings.DEBUG:
+    from django.conf.urls.static import static
+    urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
